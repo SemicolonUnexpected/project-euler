@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using Number;
 
 namespace ProjectEuler {
     class ProblemTwo : IExecutable {
@@ -10,7 +11,7 @@ namespace ProjectEuler {
         
         //Finds the sum of all even fibanacci numbers less than a number
         long SumOfFibonaccis(long upperBound) {
-            var fibonacciNumbers = NumberGenerators.FibonacciNumbers();
+            var fibonacciNumbers = FibonacciNumbers.GetFibonacciNumbers();
             long output = 0;
 
             foreach (long fibonacciNumber in fibonacciNumbers) {
