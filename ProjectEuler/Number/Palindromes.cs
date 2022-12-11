@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace ProjectEuler.Number {
     static class Palindromes {
 		/// <summary>
-		/// Gives all four digit palindromic numbers in descending order
+		/// Gives all six digit palindromic numbers in descending order
 		/// </summary>
 		/// <returns></returns>
-		public static IEnumerable<int> GetFourDigitPalindromesDescending() {
+		public static IEnumerable<int> GetSixDigitPalindromesDescending() {
 			for (int i = 999; i > 99; i--) {
 				int number = i;
 				int reverse = 0;
