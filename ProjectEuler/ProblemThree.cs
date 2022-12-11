@@ -5,10 +5,8 @@ using ProjectEuler.Number;
 namespace ProjectEuler {
     class ProblemThree : IExecutable {
 
-        const long upperBound = 600851475143;
-
         public string Execute() {
-            return $"The largest prime factor of 600851475143 is {LargestPrimeFactor(upperBound)}";
+            return $"The largest prime factor of 600851475143 is {LargestPrimeFactor(600851475143)}";
         }
 
         //Finds the largest prime factor of a number
