@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System;
-using ProjectEuler.Number;
+﻿using ProjectEuler.Number;
 
 namespace ProjectEuler {
     class ProblemTwo : IExecutable {
@@ -19,8 +17,7 @@ namespace ProjectEuler {
                     output += fibonacciNumber;
                 }
 
-                if (fibonacciNumber > upperBound)
-                    break;
+                if (fibonacciNumber > upperBound) break;
             }
 
             return output;
