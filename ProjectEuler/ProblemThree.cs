@@ -21,9 +21,7 @@ namespace ProjectEuler {
                     largestPrimeFactor = prime;
                 }
 
-                if (number == 1) {
-                    break;
-                }
+                if (number == 1) break;
             }
 
             return largestPrimeFactor;
