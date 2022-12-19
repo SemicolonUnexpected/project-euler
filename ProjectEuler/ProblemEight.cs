@@ -4,7 +4,7 @@ using System.IO;
 namespace ProjectEuler {
     class ProblemEight : IExecutable {
 
-        const string path = @"TextFiles\ProblemEight.txt";
+        const string PATH = @"TextFiles\ProblemEight.txt";
 
         public string Execute() {
             int[] digits = ToIntArray(ReadIn());
@@ -13,7 +13,7 @@ namespace ProjectEuler {
 
         //Gets the string of digits from the file and removes new lines
         string ReadIn() {
-            using StreamReader streamReader = new StreamReader(path);
+            using StreamReader streamReader = new StreamReader(PATH);
             return streamReader.ReadToEnd().Replace(Environment.NewLine, String.Empty);
         }
 
