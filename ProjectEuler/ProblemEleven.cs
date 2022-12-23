@@ -13,7 +13,7 @@ namespace ProjectEuler {
 			return $"The largest sum of 4 numbers in the same direction in the following grid is {maxSums.Max()}" + DisplayGrid();
 
 			//Returns the gird as a string
-			string DisplayGrid() {
+			static string DisplayGrid() {
                 using StreamReader streamReader = new StreamReader(PATH);
 				return "\n" + streamReader.ReadToEnd();
             }
