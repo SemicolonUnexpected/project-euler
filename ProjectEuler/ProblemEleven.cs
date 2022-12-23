@@ -14,10 +14,9 @@ namespace ProjectEuler {
 
 			//Returns the gird as a string
 			string DisplayGrid() {
-                using (StreamReader streamReader = new StreamReader(PATH)) {
-					return "\n" + streamReader.ReadToEnd();
-				}
-			}
+                using StreamReader streamReader = new StreamReader(PATH);
+				return "\n" + streamReader.ReadToEnd();
+            }
 		}
 		
 		//Sets up the grid of integers
