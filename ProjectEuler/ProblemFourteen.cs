@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjectEuler {
 	class ProblemFourteen : IExecutable {
@@ -10,8 +9,9 @@ namespace ProjectEuler {
 
         //Finds the starting number under an upper bound that produces the longest chain before terminating
         long MaxCollatz(long upperBound) {
-            Dictionary<long, long> collatzLengths = new Dictionary<long, long>();
-            collatzLengths.Add(1, 1);
+            Dictionary<long, long> collatzLengths = new Dictionary<long, long> {
+                { 1, 1 }
+            };
 
             long maxLength = 0;
             long maxLengthBase = 0;

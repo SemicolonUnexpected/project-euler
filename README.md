@@ -1,2 +1,2 @@
 # ProjectEuler
-Project Euler solutions in c#
+Project Euler solutions in C#
