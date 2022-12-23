@@ -16,6 +16,7 @@ namespace ProjectEuler {
 			return "The first ten digits of the sum of the one hundred fifty digit numbers is " + sum.ToString().Substring(0, 10);
 		}
 
+		//Reads in the first eleven digits of the numbers from the file
 		BigInteger[] ReadInFirstElevenDigits() {
 			string[] lines = File.ReadAllLines(PATH);
 

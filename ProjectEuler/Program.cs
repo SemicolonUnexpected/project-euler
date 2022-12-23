@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace ProjectEuler {
     class Program {
 
-        static readonly IExecutable problem = new ProblemThirteen();
+        static readonly IExecutable problem = new ProblemFourteen();
 
         static readonly Stopwatch stopwatch = new Stopwatch();
 
