@@ -4,11 +4,11 @@ using System.Diagnostics;
 namespace ProjectEuler {
     class Program {
 
-        static readonly IExecutable problem = new ProblemTwelve();
+        static readonly IExecutable problem = new ProblemThirteen();
 
-        static Stopwatch stopwatch = new Stopwatch();
+        static readonly Stopwatch stopwatch = new Stopwatch();
 
-        static void Main(string[] args) {
+        static void Main() {
             Console.WriteLine("----- Project Euler -----");
             Console.WriteLine("\nExecuting " + problem.ToString() + "\n");
 
