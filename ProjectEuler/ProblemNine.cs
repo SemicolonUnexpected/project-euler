@@ -17,14 +17,14 @@ namespace ProjectEuler {
         }
 
 		//returns a pythagorean triplet for values of m and n
-		int[] PythagoreanTriplet(int m, int n) {
+		private int[] PythagoreanTriplet(int m, int n) {
 			if (m < n || n < 1) throw new ArgumentOutOfRangeException("m must be greater than n and n must be greater than or equal to 1");
 
 			return new int[3] { (2 * m * n), (m * m - n * n), (m * m + n * n)};
         }
 
 		//Finds a pythagorean triplet that sums to a number
-		int[] TripletThatSumsTo(int value) {
+		private int[] TripletThatSumsTo(int value) {
 			int maxLoop = (int)Math.Floor(Math.Sqrt(value)) / 2;
 
             for (int m = 2; m < maxLoop; m++) {

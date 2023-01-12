@@ -8,7 +8,7 @@ namespace ProjectEuler {
         }
 
         //Returns the largest palindrome with two three digit divisors
-        int GetLargestThreeDigitDivisorPalindrome() {
+        private int GetLargestThreeDigitDivisorPalindrome() {
             List<int> palindromes = new List<int>(Palindromes.GetSixDigitPalindromesDescending());
             int output = 0;
 
@@ -23,7 +23,7 @@ namespace ProjectEuler {
         }
 
         //Checks if a number has two three digit divisors
-        bool HasThreeDigitDivisors(int value) {
+        private bool HasThreeDigitDivisors(int value) {
 
             for (int i = 100; i * i < value; i++) {
                 if (value % i == 0 && value / i < 1000) {
