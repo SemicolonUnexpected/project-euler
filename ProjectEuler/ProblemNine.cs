@@ -4,7 +4,6 @@ using System.Linq;
 namespace ProjectEuler {
 
 	class ProblemNine : IExecutable {
-
 		public string Execute() {
 			int[] primitiveTriple = TripletThatSumsTo(1000);
 

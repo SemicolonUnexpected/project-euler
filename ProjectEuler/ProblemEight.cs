@@ -3,9 +3,6 @@ using System.IO;
 
 namespace ProjectEuler {
     class ProblemEight : IExecutable {
-
-        const string PATH = @"TextFiles\ProblemEight.txt";
-
         public string Execute() {
             int[] digits = ToIntArray(ReadIn());
             return $"The largest product of 13 consecutive digits in the following 1000 digit number is {MaxProduct(digits, 13)}\n\n{ReadIn()}";
@@ -13,8 +10,7 @@ namespace ProjectEuler {
 
         //Gets the string of digits from the file and removes new lines
         string ReadIn() {
-            using StreamReader streamReader = new StreamReader(PATH);
-            return streamReader.ReadToEnd().Replace(Environment.NewLine, String.Empty);
+            return Properties.TextFiles.ProblemEight.Replace(Environment.NewLine, String.Empty);
         }
 
         //Converts a string of digits to an array of digits

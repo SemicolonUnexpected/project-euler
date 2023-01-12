@@ -4,19 +4,26 @@ using System.Diagnostics;
 namespace ProjectEuler {
     class Program {
 
-        static readonly IExecutable problem = new ProblemSeventeen();
+        static readonly IExecutable problem = new ProblemEighteen();
 
         static readonly Stopwatch stopwatch = new Stopwatch();
 
         static void Main() {
             Console.WriteLine("----- Project Euler -----");
+
+            ExecuteProblem(problem);
+        }
+
+        private static void ExecuteProblem(IExecutable problem) {
             Console.WriteLine("\nExecuting " + problem.ToString() + "\n");
 
             stopwatch.Start();
 
-            Console.WriteLine(problem.Execute());
+            string output = problem.Execute();
 
             stopwatch.Stop();
+
+            Console.WriteLine(output);
 
             DisplayTime();
         }

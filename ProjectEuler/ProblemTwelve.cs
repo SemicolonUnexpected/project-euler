@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using ProjectEuler.Number;
 
 namespace ProjectEuler {
-	class ProblemTwelve : IExecutable {
-
-		public string Execute() {
-			return $"The first triangular number to have over  {GetFirstTriangularNumberWithFactors(500)}";
-		}
+    class ProblemTwelve : IExecutable {
+        public string Execute() {
+            return $"The first triangular number to have over  {GetFirstTriangularNumberWithFactors(500)}";
+        }
 
         //Finds the first triangular number with a number of factors
         long GetFirstTriangularNumberWithFactors(int numberOfFactors) {
@@ -23,16 +22,16 @@ namespace ProjectEuler {
             }
 
             return output;
-		}
+        }
 
         //Finds the number of factors of a number when a list of primes is provided
-		int NumberOfFactors(long number, List<long> primes) {
+        int NumberOfFactors(long number, List<long> primes) {
             if (number == 1) {
                 return 1;
             }
 
-			int numberOfFactors = 1;
-			
+            int numberOfFactors = 1;
+
             int i = 0;
             while (number > 1) {
                 int exponent = 1;
@@ -51,7 +50,7 @@ namespace ProjectEuler {
                 i++;
             }
 
-			return numberOfFactors;
+            return numberOfFactors;
         }
-	}
+    }
 }
