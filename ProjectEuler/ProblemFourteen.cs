@@ -2,7 +2,6 @@
 
 namespace ProjectEuler {
 	class ProblemFourteen : IExecutable {
-
 		public string Execute() {
 			return $"The starting number, under one million, which produces the longest chain in the Collatz conjecture is {MaxCollatz(1000000)}";
 		}

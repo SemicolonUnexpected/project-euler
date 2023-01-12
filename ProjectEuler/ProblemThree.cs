@@ -4,7 +4,6 @@ using ProjectEuler.Number;
 
 namespace ProjectEuler {
     class ProblemThree : IExecutable {
-
         public string Execute() {
             return $"The largest prime factor of 600851475143 is {LargestPrimeFactor(600851475143)}";
         }

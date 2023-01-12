@@ -4,9 +4,6 @@ using System.Linq;
 
 namespace ProjectEuler {
 	class ProblemEleven : IExecutable {
-
-		const string PATH = @"TextFiles\ProblemEleven.txt";
-
 		public string Execute() {
 			int[,] grid = ReadInGrid();
 			int[] maxSums = LargestSum(grid);
@@ -14,16 +11,15 @@ namespace ProjectEuler {
 
 			//Returns the gird as a string
 			static string DisplayGrid() {
-                using StreamReader streamReader = new StreamReader(PATH);
-				return "\n" + streamReader.ReadToEnd();
+				return "\n" + Properties.TextFiles.ProblemEleven;
             }
 		}
 		
 		//Sets up the grid of integers
 		int[,] ReadInGrid() {
-			string[] lines = File.ReadAllLines(PATH);
+			string[] lines = Properties.TextFiles.ProblemEleven.Split('\n');
 
-			int[,] output = new int[20, 20];
+            int[,] output = new int[20, 20];
 
             for (int i = 0; i < 20; i++) {
 				int[] numbers = Array.ConvertAll<string, int>(lines[i].Split(" "), int.Parse);

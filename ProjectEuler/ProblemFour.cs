@@ -3,7 +3,6 @@ using ProjectEuler.Number;
 
 namespace ProjectEuler {
     class ProblemFour : IExecutable {
-
         public string Execute() {
             return $"The largest palindrome made from the product of two 3-digit numbers is {GetLargestThreeDigitDivisorPalindrome()}";
         }

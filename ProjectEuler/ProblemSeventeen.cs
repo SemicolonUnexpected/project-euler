@@ -2,7 +2,6 @@
 
 namespace ProjectEuler {
     class ProblemSeventeen : IExecutable {
-
         public string Execute() {
             string letters = "";
 
