@@ -46,5 +46,54 @@ namespace ProjectEuler.Number {
 
 			return true;
 		}
+
+		/// <summary>
+		/// Finds the factors of all integers within a given range
+		/// </summary>
+		/// <param name="upperBound"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentOutOfRangeException"></exception>
+		public static List<long>[] GetFactors(long upperBound) {
+            if (upperBound <= 1) {
+                throw new ArgumentOutOfRangeException();
+            }
+
+			List<long>[] factors = new List<long>[upperBound];
+
+			for (int i = 0; i < factors.Length; i++) {
+				factors[i] = new List<long>();
+            }
+
+			for (int i = 0; i <= upperBound; i++) {
+				for (int j = 0; j <= upperBound - i - 1; j += i + 1) {
+					factors[i + j].Add(i + 1);
+				}
+			}
+
+			return factors;
+        }
+
+		/// <summary>
+		/// Finds the sum of the proper divisors for all numbers less than the upper bound
+		/// </summary>
+		/// <param name="upperBound"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentOutOfRangeException"></exception>
+		// O(n * (ln(n) + 0.577)
+		public static long[] GetSumProperDivisors(long upperBound) {
+			if (upperBound <= 1) {
+				throw new ArgumentOutOfRangeException();
+			}
+
+			long[] sumProperDivisors = new long[upperBound];
+
+			for (int i = 1; i < sumProperDivisors.Length; i++) {
+				for (int j = i; j + i < sumProperDivisors.Length; j += i) {
+					sumProperDivisors[i + j] += i;
+				}
+			}
+
+			return sumProperDivisors;
+        }
 	}
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ProjectEuler.Number;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ProjectEuler {
     class Program {
 
-        static readonly IExecutable problem = new ProblemTwenty();
+        static readonly IExecutable problem = new ProblemTwentyOne();
 
         static readonly Stopwatch stopwatch = new Stopwatch();
 
