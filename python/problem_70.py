@@ -1,4 +1,4 @@
-# Some initial thoughts...
+
 # let f(x) = x / totient(x)
 # - f(x) decreases as the primes that compose the number grow larger
 # - f(x) is also smaller when only two primes are used
@@ -6,7 +6,8 @@
 # the square root of the bounds
 # - The totient of x cannot be a permutation when x is a prime
 
-from math import sqrt, floor
+from math import sqrt, floor, prod
+from itertools import combinations_with_replacement as comb
 
 
 # Get all primes less than n
@@ -35,12 +36,12 @@ def sieve(n):
 
 
 def phi(n):
-    numbers = [0] * (n - 2)
-    for i in range(n - 2):
+    numbers = [0] * (n - 1)
+    for i in range(n - 1):
         if numbers[i] == 0:
             prime = i + 2
             numbers[i] = prime - 1
-            for j in range(i, n - 2, prime):
+            for j in range(i, n - 1, prime):
                 if numbers[j] == 0:
                     numbers[j] = (j + 2) - (j + 2) // prime
                 else:
@@ -48,9 +49,33 @@ def phi(n):
     return [1] + numbers
 
 
+def get_digits_signature(n):
+    digits = list()
+    while n > 0:
+        digits.append(n % 10)
+        n //= 10
+    return tuple(sorted(digits))
+
+
 def main():
-    print(phi(10 ** 6))
+    upper_bound = 10 ** 5
+    maximum = 10 ** 7
+    primes = sieve(int(upper_bound - 1))
+    totient_permuations = list()
+    for factors in comb(primes, 2):
+        number = prod(factors)
+        if number > maximum:
+            continue
+        totient = prod([factor - 1 for factor in factors])
+        if get_digits_signature(number) == get_digits_signature(totient):
+            totient_permuations.append((number / totient, number, factors))
+    print(min(totient_permuations)[1])
 
 
 if __name__ == "__main__":
     main()
+
+# Solved!!
+# Some suggested optimisations I cannot be bothered to implement...
+# - Sort the primes list so that they are sorted by distance 
+# from the root of the bound
