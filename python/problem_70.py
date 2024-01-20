@@ -7,9 +7,9 @@
 # - The totient of x cannot be a permutation when x is a prime
 
 from math import sqrt, floor
-from functools import reduce
 
 
+# Get all primes less than n
 def sieve(n):
     # Some useful variables
     half = n // 2
@@ -34,32 +34,22 @@ def sieve(n):
     return primes
 
 
-primes = sieve(pow(10, 2))
-
-
-def get_factors(n):
-    factors = list()
-    for prime in primes:
-        while n % prime == 0:
-            factors.append(prime)
-            n //= prime
-        if n == 1:
-            break
-    if n > 1:
-        raise Exception("Please give me some more primes")
-    return factors
-
-
-def totient(n):
-    if n == 1:
-        return 1
-    return reduce((lambda x, y: x * y), [factor - 1 for factor in get_factors(n)])
+def phi(n):
+    numbers = [0] * (n - 2)
+    for i in range(n - 2):
+        if numbers[i] == 0:
+            prime = i + 2
+            numbers[i] = prime - 1
+            for j in range(i, n - 2, prime):
+                if numbers[j] == 0:
+                    numbers[j] = (j + 2) - (j + 2) // prime
+                else:
+                    numbers[j] -= numbers[j] // prime
+    return [1] + numbers
 
 
 def main():
-    while True:
-        print(get_factors(int(input())))
-        print(totient(int(input())))
+    print(phi(10 ** 6))
 
 
 if __name__ == "__main__":
