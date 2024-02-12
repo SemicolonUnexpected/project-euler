@@ -1,12 +1,15 @@
-def count_partitions(n):
-    if n == 1:
+def count_partitions(num, upper):
+    if upper == 1 or num == 1:
         return 1
     else:
-        return count_partitions(n - 1) + 1
+        sum = 0
+        for i in range(upper):
+            sum += count_partitions(num - i, i)
+        return sum
 
 
 def main():
-    print(count_partitions(5))
+    print(count_partitions(5, 5))
 
 
 if __name__ == "__main__":
