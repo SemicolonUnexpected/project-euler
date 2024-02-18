@@ -1,7 +1,6 @@
-from functools import cache
+cache = [list()] * 1000000
 
 
-@cache
 def count_partitions(num, upper):
     if num < 0:
         return 0
