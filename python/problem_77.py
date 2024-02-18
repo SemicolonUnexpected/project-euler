@@ -33,12 +33,21 @@ def count_partitions(num, options):
     else:
         sum = 0
         for i in range(len(options)):
-            sum += count_partitions(num - options[i], options[i + 1:])
+            if (options[i] > num):
+                break
+            sum += count_partitions(num - options[i], options[:i + 1])
         return sum
 
 
 def main():
-    print(sieve(100))
+    primes = tuple(sieve(10 ** 6))
+    i = 0
+    while True:
+        i += 1
+        total = count_partitions(i, primes)
+        if total > 5000:
+            print(i)
+            break
 
 
 if __name__ == "__main__":
