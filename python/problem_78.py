@@ -2,6 +2,7 @@ from itertools import product
 
 
 upper_bound = 10
+cache = [list()] * 1000000
 
 
 def count_partitions(num, upper):
