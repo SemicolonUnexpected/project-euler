@@ -1,7 +1,9 @@
-from functools import cache
+from itertools import product
 
 
-@cache
+upper_bound = 10
+
+
 def count_partitions(num, upper):
     if num < 0:
         return 0
@@ -15,14 +17,16 @@ def count_partitions(num, upper):
 
 
 def main():
-    i = 0
-    while True:
-        i += 1
-        partitons = count_partitions(i, i)
-        print(i, partitons)
-        if partitons % 1_000_000 == 0:
-            print(i)
-            break
+    partitons = [[0]*upper_bound for i in range(upper_bound)]
+    print(partitons)
+    for i, j in product(range(upper_bound), repeat=2):
+        if i == 0:
+            partitons[i][j] = j
+        for k in range(j):
+            partitions[i][j] += 
+
+    print(partitons)
+    print("done")
 
 
 if __name__ == "__main__":
