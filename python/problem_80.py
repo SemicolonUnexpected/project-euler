@@ -34,6 +34,12 @@
 # use cache for performance if sensible solution
 
 
+def cycle():
+    while True:
+        yield [2]
+        yield []
+
+
 def prime_divisors(n):
     pass
 
