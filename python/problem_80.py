@@ -32,12 +32,7 @@
 # rphi is similar to totients but uses floor
 #
 # use cache for performance if sensible solution
-
-
-def cycle():
-    while True:
-        yield [2]
-        yield []
+from math import floor
 
 
 def prime_divisors(n):
@@ -45,12 +40,9 @@ def prime_divisors(n):
 
     # Generate the list which will contain the prime divisors
     assert n > 1
+    prime_divisors = [item for i in range(n//2) for item in ([2], [])]
     if n % 2 == 0:
-        prime_divisors = [[2]] + [item for i in range(n//2 - 1) for item in ([], [2])]
-    else:
-        prime_divisors = [[2]] + [list([list(), list()]) for i in range(n//2 - 1)] + [[]]
-
-    print(len(prime_divisors))
+        del prime_divisors[-1]
 
     # Do the prime sieve
     half = (n-1)//2
@@ -59,34 +51,26 @@ def prime_divisors(n):
     for i in range(half):
         if primes[i]:
             prime = 2*i + 3
-            print("The current prime is: " + str(prime))
             for j in range((prime**2 - 3)//2, half, prime):
                 primes[j] = False
             for k in range(prime - 2, n - 1, prime):
-                print(k)
-                print("Appending: " + str(prime))
                 prime_divisors[k].append(prime)
-                print(prime_divisors)
+
+    return prime_divisors
 
 
-    print(prime_divisors)
-
-
-def rphi(a, b):
-    pass
+def rphi(divisors, top):
+    """
+    returns the number of integers less than top which are coprime with the number that has the specified prime divisors
+    """
+    top -= 1
+    for divisor in divisors:
+        top -= top//divisor
+    return top
 
 
 def main():
-    prime_divisors(7)
-
-    return
-
-    print("---------------------------------------")
-    prime_divisors(3)
-    print("---------------------------------------")
-    prime_divisors(4)
-    print("---------------------------------------")
-    prime_divisors(5)
+    divisors = prime_divisors(12_000)
 
 
 if __name__ == "__main__":
