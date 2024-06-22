@@ -23,19 +23,47 @@
 # value
 #
 # n = p^a x q^b x ...
-# where p and q are distinct prime factorss
+# where p and q are distinct prime factors
 # phi(p^a x q^b x ...) = n(1 - 1/p)(1 - 1/q)...
 #
 # let rphi(a, b) ->
 #    |{ x | x <  b,  x | b}|
 #
-# rphi is similar to totients but uses floorr
+# rphi is similar to totients but uses floor
 #
 # use cache for performance if sensible solution
 
 
 def prime_divisors(n):
-    pass
+    prime_divisors = None
+
+    # Generate the list which will contain the prime divisors
+    assert n > 1
+    if n % 2 == 0:
+        prime_divisors = [[2]] + [item for i in range(n//2 - 1) for item in ([], [2])]
+    else:
+        prime_divisors = [[2]] + [list([list(), list()]) for i in range(n//2 - 1)] + [[]]
+
+    print(len(prime_divisors))
+
+    # Do the prime sieve
+    half = (n-1)//2
+    sqrt = half**0.5
+    primes = [True] * half
+    for i in range(half):
+        if primes[i]:
+            prime = 2*i + 3
+            print("The current prime is: " + str(prime))
+            for j in range((prime**2 - 3)//2, half, prime):
+                primes[j] = False
+            for k in range(prime - 2, n - 1, prime):
+                print(k)
+                print("Appending: " + str(prime))
+                prime_divisors[k].append(prime)
+                print(prime_divisors)
+
+
+    print(prime_divisors)
 
 
 def rphi(a, b):
@@ -43,7 +71,16 @@ def rphi(a, b):
 
 
 def main():
-    pass
+    prime_divisors(7)
+
+    return
+
+    print("---------------------------------------")
+    prime_divisors(3)
+    print("---------------------------------------")
+    prime_divisors(4)
+    print("---------------------------------------")
+    prime_divisors(5)
 
 
 if __name__ == "__main__":
