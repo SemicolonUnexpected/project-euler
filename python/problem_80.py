@@ -15,7 +15,31 @@
 #
 # d/3 < n < d/2
 #
+# have to find a way to find the number of
+# coprime integers to d within the range of
+# values which n can take
 #
+# only need for less than range or greater
+# value
+#
+# n = p^a x q^b x ...
+# where p and q are distinct prime factorss
+# phi(p^a x q^b x ...) = n(1 - 1/p)(1 - 1/q)...
+#
+# let rphi(a, b) ->
+#    |{ x | x <  b,  x | b}|
+#
+# rphi is similar to totients but uses floorr
+#
+# use cache for performance if sensible solution
+
+
+def prime_divisors(n):
+    pass
+
+
+def rphi(a, b):
+    pass
 
 
 def main():
