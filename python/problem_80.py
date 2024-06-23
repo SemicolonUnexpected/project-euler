@@ -61,16 +61,21 @@ def prime_divisors(n):
 
 def rphi(divisors, top):
     """
-    returns the number of integers less than top which are coprime with the number that has the specified prime divisors
+    returns the number of integers less than
+    top which are coprime with the number that has the specified prime divisors
     """
     top -= 1
     for divisor in divisors:
-        top -= top//divisor
-    return top
+        top -= top/divisor
+    return floor(top)
 
 
 def main():
     divisors = prime_divisors(12_000)
+
+    number = 1000
+    top = 500
+    print(rphi(divisors[number - 2], top))
 
 
 if __name__ == "__main__":
