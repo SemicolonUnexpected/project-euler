@@ -46,7 +46,6 @@ def prime_divisors(n):
 
     # Do the prime sieve
     half = (n-1)//2
-    sqrt = half**0.5
     primes = [True] * half
     for i in range(half):
         if primes[i]:
@@ -64,19 +63,28 @@ def rphi(divisors, top):
     returns the number of integers less than
     top which are coprime with the number that has the specified prime divisors
     """
-    top -= 1
     for divisor in divisors:
         top -= top/divisor
-    return floor(top)
+    return top
 
 
 def main():
-    divisors = prime_divisors(12_000)
+    divisors = prime_divisors(12_001)
+    num = 100
+    top = 7
+    print(divisors[num - 2])
+    print(rphi(divisors[num - 2], top))
+    return
 
-    number = 1000
-    top = 500
-    print(rphi(divisors[number - 2], top))
-
+    num_valid_fractions = 1 # Start off with one for 2/5
+    for d in range(6, 12_0001):
+        # d/3 < n < d/2
+        lower_n = d//3
+        upper_n = d//2
+        
+        num_valid_fractions += rphi(divisors[d-2], upper_n) - rphi(divisors[d-2], lower_n)
+    print(num_valid_fractions)
+        
 
 if __name__ == "__main__":
     main()
