@@ -32,7 +32,7 @@
 # rphi is similar to totients but uses floor
 #
 # use cache for performance if sensible solution
-from math import floor
+from math import floor, ceil
 
 
 def prime_divisors(n):
@@ -65,13 +65,13 @@ def rphi(divisors, top):
     """
     for divisor in divisors:
         top -= top/divisor
-    return top
+    return ceil(top)
 
 
 def main():
     divisors = prime_divisors(12_001)
-    num = 100
-    top = 7
+    num = 10
+    top = 5
     print(divisors[num - 2])
     print(rphi(divisors[num - 2], top))
     return
