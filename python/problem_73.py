@@ -81,10 +81,10 @@ def main():
         # d/3 < n < d/2
         lower_n = d//3
         upper_n = d//2
-        
+
         num_valid_fractions += rphi(divisors[d-2], upper_n) - rphi(divisors[d-2], lower_n)
     print(num_valid_fractions)
-        
+
 
 if __name__ == "__main__":
     main()
