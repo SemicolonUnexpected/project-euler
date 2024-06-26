@@ -70,20 +70,19 @@ def rphi(divisors, top):
 
 def main():
     divisors = prime_divisors(12_001)
-    num = 10
-    top = 5
-    print(divisors[num - 2])
-    print(rphi(divisors[num - 2], top))
+
+    print(rphi(divisors[10 - 2], 5))
+    return
+    print(ceil(10/2), rphi(divisors[10 - 2], ceil(10/2)))
+    print(ceil(10/3), rphi(divisors[10 - 2], floor(10/3)))
+    print(rphi(divisors[10 - 2], floor(10/2)) - rphi(divisors[10 - 2], ceil(10/3)))
     return
 
     num_valid_fractions = 1 # Start off with one for 2/5
     for d in range(6, 12_0001):
         # d/3 < n < d/2
-        lower_n = d//3
-        upper_n = d//2
-
-        num_valid_fractions += rphi(divisors[d-2], upper_n) - rphi(divisors[d-2], lower_n)
-    print(num_valid_fractions)
+        lower_bound = d//3
+        upper_bound = d//2
 
 
 if __name__ == "__main__":
