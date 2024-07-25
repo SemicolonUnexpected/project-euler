@@ -32,7 +32,7 @@
 # rphi is similar to totients but uses floor
 #
 # use cache for performance if sensible solution
-from math import floor, ceil
+from math import floor, ceil, gcd
 
 
 def prime_divisors(n):
@@ -63,19 +63,32 @@ def rphi(divisors, top):
     returns the number of integers less than
     top which are coprime with the number that has the specified prime divisors
     """
-    for divisor in divisors:
+    top -= 1
+    num = top
+
+    for divisor in reversed(divisors):
+        num -= floor(top/divisor)
         top -= top/divisor
-    return ceil(top)
+    return num
+
+
+def brute_rphi(x, y):
+    count = 0
+    for i in range(1, y):
+        if gcd(i, x) == 1:
+            count += 1
+    return count
 
 
 def main():
-    divisors = prime_divisors(12_001)
+    divisors = prime_divisors(12_0010)
 
-    print(rphi(divisors[10 - 2], 5))
-    return
-    print(ceil(10/2), rphi(divisors[10 - 2], ceil(10/2)))
-    print(ceil(10/3), rphi(divisors[10 - 2], floor(10/3)))
-    print(rphi(divisors[10 - 2], floor(10/2)) - rphi(divisors[10 - 2], ceil(10/3)))
+    num = 2*3*7*11*13*17
+    top = 21
+    print(f"Algorithm: {rphi(divisors[num - 2], top)}")
+    print(f"Brute force: {brute_rphi(num, top)}")
+    print(rphi(divisors[num - 2], floor(num/2))
+          - rphi(divisors[num - 2], ceil(num/3)))
     return
 
     num_valid_fractions = 1 # Start off with one for 2/5
