@@ -1,3 +1,6 @@
+import math
+
+
 def mul_root(a, b, c, d, modulus):
     return ((a * c + 5 * b * d) % modulus,
             (b * c + a * d) % modulus)
@@ -14,11 +17,22 @@ def bin_pow_root(a, b, power, modulus):
         a, b = mul_root(a, b, a, b, modulus)
         power >>= 1
 
-    return res_a, res_b
+    return res_a % modulus, res_b % modulus
 
 
 def main():
-    print(bin_pow_root(4, 4, 10**18, 1000000009))
+    power = 10**18
+    m = 1_000_000_009
+    a, b = bin_pow_root(4, 4, power, m)
+    four = pow(4, power, m)
+
+    # only works with even powers and if m is a prime
+    numerator = b - a + four
+    denominator = 2 * a - four ** 2 - four
+
+    print(numerator, denominator)
+
+    print(numerator * pow(denominator, m - 2, m) % m)
 
 
 if __name__ == "__main__":
