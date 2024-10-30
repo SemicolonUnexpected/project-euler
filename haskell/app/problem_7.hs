@@ -37,4 +37,4 @@ main = do
     putStrLn "----- Problem 7 -----"
     putStrLn (show (primes !! 10000))
 -}
-    
+

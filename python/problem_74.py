@@ -1,18 +1,7 @@
 # Possibly the slowest implementation ever but we balling
 # Could be improved by memoizing each cycle but idc
 # im so fed up with these first 100 problemss
-fact = {
-        0: 1,
-        1: 1,
-        2: 2,
-        3: 6,
-        4: 24,
-        5: 120,
-        6: 720,
-        7: 5040,
-        8: 40320,
-        9: 362880
-        }
+fact = {0: 1, 1: 1, 2: 2, 3: 6, 4: 24, 5: 120, 6: 720, 7: 5040, 8: 40320, 9: 362880}
 
 
 def get_digits(n):
@@ -50,5 +39,5 @@ def main():
     print(count)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,3 @@
-
 def phi(n):
     numbers = [0] * (n - 1)
     for i in range(n - 1):
@@ -17,5 +16,5 @@ def main():
     print(sum(phi(10**6)) - 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

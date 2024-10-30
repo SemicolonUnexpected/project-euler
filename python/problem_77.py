@@ -1,5 +1,5 @@
-from functools import cache
 import math
+from functools import cache
 
 
 def sieve(n):
@@ -33,14 +33,14 @@ def count_partitions(num, options):
     else:
         sum = 0
         for i in range(len(options)):
-            if (options[i] > num):
+            if options[i] > num:
                 break
-            sum += count_partitions(num - options[i], options[:i + 1])
+            sum += count_partitions(num - options[i], options[: i + 1])
         return sum
 
 
 def main():
-    primes = tuple(sieve(10 ** 6))
+    primes = tuple(sieve(10**6))
     i = 0
     while True:
         i += 1
