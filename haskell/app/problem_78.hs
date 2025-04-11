@@ -39,6 +39,7 @@
      OOOO OO
      OO OO OO
      OOO OOO
+= 11
  -}
 
 partition :: Integer -> Integer
