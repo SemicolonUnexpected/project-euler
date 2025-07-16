@@ -21,25 +21,21 @@ def main():
                 break
 
             triangle = triple(m, n)
-            if gcd(triangle[0], triangle[1], triangle[2]) != 1:
-                
-                break
             length = sum(triangle)
-            if length == 30:
-                print(triangle)
+            #print(m, n, triangle, length)
 
+            if gcd(triangle[0], triangle[1], triangle[2]) != 1:
+                continue
              
             for i in range(length, 1500000, length):
                 valid[i - 1] += 1
-                if i == 120:
-                    print(triple(m, n))
 
     total = 0
     for i in range(1500000):
         if valid[i] == 1:
             total += 1
     
-    print(valid[119])
+    #print(valid[119])
     print(total)
 
             
